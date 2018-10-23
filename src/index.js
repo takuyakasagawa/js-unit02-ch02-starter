@@ -18,7 +18,7 @@ function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
   /* 
-    showDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
+    getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
   */
 }
 
