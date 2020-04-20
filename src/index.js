@@ -14,6 +14,10 @@ const propertyData = {
   }
 }
 
+//let promise = new Promise(function(resolve, reject) {
+  // executor (生成コード, "シンガー")
+//});
+
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
