@@ -35,15 +35,14 @@ function fetchData() {
   */
 
   // Step 1: 生成コードの構文をまずはそのままここに書けます。構文だけ先に書いて、あとで中身を埋めていく手法ですね
-  let promise = new Promise(function(resolve, reject) {
-    const Data =  _.random(1,5)/5;
-    if (Data >= 4)　{
-      resolve
+  new Promise(function(resolve, reject) {
+    const showData =  _.random(1,5);
+    if (showData >= 4)　{
+      resolve()
     } 
-    else if (Data <= 1) {
-      reject
+   else {
+     reject()
     }
-    //(生成コード, "シンガー")
   });
   // Step 2: executor部分を書いていきます。「もし80%の確率に該当したら正しいデータを返し、それ以外の20%の確率であればエラーを返す」に着目すると、基礎編で習得したとある技法が使えます。これも構文だけ書いて、あとで中身を埋めていきます。
 ​
