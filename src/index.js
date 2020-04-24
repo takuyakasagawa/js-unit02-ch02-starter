@@ -37,10 +37,14 @@ function fetchData() {
   new Promise(function(resolve, reject) {
     const showData =  _.random(1,5);
     if (showData <= 4)　{
-      resolve({ success: true, propertyData: propertyData});
+      setTimeout(() => {
+          resolve({ success: true, propertyData: propertyData});
+      }, 1000);
     } 
    else {
-     reject({ success: false, message: 'データの取得に失敗しました。' });
+     setTimeout(() => {
+        reject({ success: false, message: 'データの取得に失敗しました。' });
+      }, 1000);
     }
   });
 }
@@ -48,3 +52,4 @@ function fetchData() {
 {
   const button1 = document.getElementById('button1');
   button1.addEventListener("click", handleClick);
+}
