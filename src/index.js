@@ -36,16 +36,14 @@ function fetchData() {
  
   new Promise(function(resolve, reject) {
     const showData =  _.random(1,5);
-    if (showData <= 4)　{
-      setTimeout(() => {
-          resolve({ success: true, propertyData: propertyData});
-      }, 1000);
-    } 
-   else {
-     setTimeout(() => {
+    setTimeout(() => {
+      if (showData <= 4)　{
+        resolve({ success: true, propertyData: propertyData});
+      } 
+      else {
         reject({ success: false, message: 'データの取得に失敗しました。' });
-      }, 1000);
-    }
+      }
+    }, 1000);
   });
 }
 ​
