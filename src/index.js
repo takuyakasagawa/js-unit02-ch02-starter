@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { promises } from 'fs';
 ​
 const propertyData = {
   id: 1,
@@ -23,9 +24,18 @@ function handleClick(e) {
 }
 ​
 function getData() {
-  /* 
+    /* 
     fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。
   */
+  new Promise(function(resolve, reject) {
+    if (条件式1) {
+      //Promise.then
+    }
+    else if (条件式2) {	
+      //Promise.catch
+    }
+  });
+
 }
 ​
 function fetchData() {
