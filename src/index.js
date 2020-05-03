@@ -27,17 +27,43 @@ function getData() {
     /* 
     fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。
   */
-  new Promise(function(resolve, reject) {
-    if (条件式1) {
-      //Promise.then
-    }
-    else if (条件式2) {	
-      //Promise.catch
-    }
-  });
+  //if (result.succes === true)
+  //if (result.succes)に省略可能
+  //if (result.succes === fales)
+  //if (!result.succes)に省略可能
+  //true falseは論理値のため書き換えが可能
 
+  //return fetchData().then(function (result) {
+  //return fetchData().then((result) => {
+  //引数()があればアロー関数に変更できる
+
+  //グローバルスコープに入るためプロパティresult.succes
+  //.then() .catch()の間はセミコロン;入れない
+
+  return fetchData().then((result) => {
+    if (result.success) {
+      const  correctData = (result.propertyData);
+    }
+    else {	
+      console.log('データの取得に失敗しました。');
+    }
+  })
+  .catch((err) => {
+    console.log('データの取得に失敗しました。');
+  })
 }
-​
+
+// x,y
+// x + y
+// x = 3,​ y = 5の時のx+yの合計を求めなさい
+// X + y = 8
+
+// function sumData(x, y) {
+//   const sum = x + y;
+//   console.log(sum);
+// }
+// sumData(3, 5);
+
 function fetchData() {
   /* 
     lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
