@@ -18,6 +18,7 @@ const propertyData = {
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
+
   /* 
     getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
   */
@@ -42,14 +43,14 @@ function getData() {
 
   return fetchData().then((result) => {
     if (result.success) {
-      const  correctData = (result.propertyData);
+      resolve({ success: true, propertyData: propertyData});
     }
     else {	
-      console.log('データの取得に失敗しました。');
+      reject({ success: false, message: 'データの取得に失敗しました。' });
     }
   })
   .catch((err) => {
-    console.log('データの取得に失敗しました。');
+    reject({ success: false, message: 'データの取得に失敗しました。' });
   })
 }
 
