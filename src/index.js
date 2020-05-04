@@ -15,44 +15,49 @@ const propertyData = {
   }
 }
 ​
+/* 
+  getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
+*/
+
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
-
-  /* 
-    getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
-  */
+  return getData().then((result) => {
+  })
+  .catch((err) => {
+    alert(reject.message);
+  })
 }
 ​
 function getData() {
     /* 
     fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。
   */
-  //if (result.succes === true)
-  //if (result.succes)に省略可能
-  //if (result.succes === fales)
-  //if (!result.succes)に省略可能
-  //true falseは論理値のため書き換えが可能
-
-  //return fetchData().then(function (result) {
-  //return fetchData().then((result) => {
-  //引数()があればアロー関数に変更できる
-
-  //グローバルスコープに入るためプロパティresult.succes
-  //.then() .catch()の間はセミコロン;入れない
-
   return fetchData().then((result) => {
     if (result.success) {
-      resolve({ success: true, propertyData: propertyData});
+      resolve();
     }
     else {	
-      reject({ success: false, message: 'データの取得に失敗しました。' });
+      reject();
     }
   })
   .catch((err) => {
     reject({ success: false, message: 'データの取得に失敗しました。' });
   })
 }
+
+//if (result.succes === true)
+//if (result.succes)に省略可能
+//if (result.succes === fales)
+//if (!result.succes)に省略可能
+//true falseは論理値のため書き換えが可能
+
+//return fetchData().then(function (result) {
+//return fetchData().then((result) => {
+//引数()があればアロー関数に変更できる
+
+//グローバルスコープに入るためプロパティresult.succes
+//.then() .catch()の間はセミコロン;入れない
 
 // x,y
 // x + y
