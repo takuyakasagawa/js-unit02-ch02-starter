@@ -23,9 +23,10 @@ function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
   return getData().then((result) => {
+    resolve(mainEl.innerHTML = result.propertyData) 
   })
   .catch((err) => {
-    alert(reject.message);
+    rejct( alert(reject.message) );
   })
 }
 ​
