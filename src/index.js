@@ -36,14 +36,11 @@ function getData() {
   */
   return fetchData().then((result) => {
     if (result.success) {
-      resolve({ propertyData: propertyData });
+      resolve(result.propertyData);
     }
     else {	
-      reject({ message: 'データの取得に失敗しました。' });
+      reject();
     }
-  })
-  .catch((err) => {
-    reject({ message: 'データの取得に失敗しました。' });
   })
 }
 
