@@ -39,7 +39,7 @@ function getData() {
       resolve(result.propertyData);
     }
     else {	
-      reject();
+      reject(rejct.message);
     }
   })
 }
