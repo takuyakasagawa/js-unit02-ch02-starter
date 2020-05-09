@@ -1,6 +1,4 @@
 import _ from 'lodash';
-import { promises } from 'fs';
-​
 const propertyData = {
   id: 1,
   propertyName: '1BR Japanese-style Private Room near Kyoto Station',
@@ -14,19 +12,25 @@ const propertyData = {
     firstName: 'Tom'
   }
 }
-​
-/* 
-  getDataを呼び出して、mainEl.innerHTMLを利用して、結果を出力します。
-*/
 
 function handleClick(e) {
   e.preventDefault();
   const mainEl = document.getElementById('main');
-  return getData().then((result) => {
-    resolve(mainEl.innerHTML = result.propertyData) 
+  return getData().then((output) => {
+    mainEl.innerHTML = `
+      <div class="propertyInfo">
+        <p>宿名: ${output.propertyName}</p>
+        <p>宿のタイプ: ${output.propertyType}</p>
+        <p>キャンセルポリシー: ${output.cancelPolicy}</p>
+        <p>部屋数: ${output.roomNum}</p>
+        <p>バスルーム数: ${output.bathroomNum}</p>
+        <p>支払い通貨(USD):${output.priceInDollars}</p>
+        <p>ホスト: ${output.host.firstName}</p>
+      </div>
+      `
   })
   .catch((err) => {
-    rejct( alert(reject.message) );
+    alert(err.message);
   })
 }
 ​
@@ -36,44 +40,19 @@ function getData() {
   */
   return fetchData().then((result) => {
     if (result.success) {
-      resolve(result.propertyData);
+      return Promise.resolve(result.propertyData);
     }
     else {	
-      reject(rejct.message);
+      return Promise.reject(result.message);
     }
   })
 }
-
-//if (result.succes === true)
-//if (result.succes)に省略可能
-//if (result.succes === fales)
-//if (!result.succes)に省略可能
-//true falseは論理値のため書き換えが可能
-
-//return fetchData().then(function (result) {
-//return fetchData().then((result) => {
-//引数()があればアロー関数に変更できる
-
-//グローバルスコープに入るためプロパティresult.succes
-//.then() .catch()の間はセミコロン;入れない
-
-// x,y
-// x + y
-// x = 3,​ y = 5の時のx+yの合計を求めなさい
-// X + y = 8
-
-// function sumData(x, y) {
-//   const sum = x + y;
-//   console.log(sum);
-// }
-// sumData(3, 5);
 
 function fetchData() {
   /* 
     lodashのrandom()を使って、80%の確率で正しいデータを返し、20%の確率でエラーを返すようにしましょう。
     またsetTimeoutを利用して、1秒待ってから結果を得るようにします。
   */
- 
   new Promise(function(resolve, reject) {
     const showData =  _.random(1,5);
     setTimeout(() => {
