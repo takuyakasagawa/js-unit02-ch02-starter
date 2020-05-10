@@ -8,7 +8,9 @@
     "dev-server": "webpack-dev-server"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "css-loader": "^3.5.3",
+    "lodash": "^4.17.4",
+    "style-loader": "^1.2.1"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
