@@ -33,7 +33,7 @@ function handleClick(e) {
     alert(err.message);
   })
 }
-​
+
 function getData() {
     /* 
     fetchDataを呼び出して、戻ってきたデータのsuccessの値を元にresolveで物件データまたは、rejectでエラーメッセージを返す。
@@ -65,7 +65,7 @@ function fetchData() {
     }, 1000);
   });
 }
-​
+
 {
   const button1 = document.getElementById('button1');
   button1.addEventListener("click", handleClick);
