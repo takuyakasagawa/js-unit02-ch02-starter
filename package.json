@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "css-loader": "^3.5.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "style-loader": "^1.2.1"
   },
   "devDependencies": {
